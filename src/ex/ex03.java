@@ -12,23 +12,24 @@ public class ex03 {
 		// TODO Auto-generated method stub
         Scanner scn = new Scanner(System.in);
         System.out.println("輸入兩個要相乘的陣列");
-        System.out.print("請問要輸入:");
+        System.out.println("請問要輸入:");
         int v1 = scn.nextInt();
-        System.out.print("*");
+        
         int v2 = scn.nextInt();  
-        System.out.print("乘上:");
+        System.out.println("乘上:");
         int v3 = scn.nextInt();
-        System.out.print("*");
+       
         int v4 = scn.nextInt();
+        int sum = 0; 
         if(v1 == v4 && v2 == v3){
-        System.out.print("輸入你的第一個陣列");       
+        System.out.println("輸入你的第一個陣列");       
         int[][]v5 = new int[v1][v2];
 	    for(int i = 0;i<v1;i++){
 	    	for(int j = 0;j<v2;j++){
 	    		v5[i][j]=scn.nextInt();
 	    }
 	    }
-	     System.out.print("輸入你的第二個陣列");
+	     System.out.println("輸入你的第二個陣列");
 	     int[][]v6 = new int[v3][v4];
 		 for(int h = 0;h<v3;h++){
 		    for(int k = 0;k<v4;k++){
@@ -38,13 +39,21 @@ public class ex03 {
 		 int[][]v7 = new int[v1][v3];
 		 for(int p = 0;p<v1;p++){
 			 for(int o = 0;o<v3;o++){
-				 for(int y = 0;y<v1*v3;y++){ 
-				 v7[p][o] = (v5[0][0]) * (v6[0][0]) + (v5[1][0]) * (v6[0][1])+ (v5[2][0]) * (v6[0][2]);
+				 sum = 0;
+				 for(int y = 0;y<v3;y++){ 
+				 sum +=  v5[p][y]*v6[y][o] ;
 				 }
-				 System.out.println("");
+				 v7[p][o] = sum;
+			 }
+		 }
+		  for(int r = 0;r<v1;r++){
+			  for(int w = 0;w<v3;w++){
+				  System.out.print(v7[r][w]+"\t");
+			  }
+				 System.out.println();
 				 }
 			 }
-        }
+        
 		    else{
 			System.out.print("兩陣列無法相乘!");
 		}
